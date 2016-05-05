@@ -21,11 +21,13 @@ export default (app, express, passport) => {
   
   app.post('/signup', userController.saveOne);
 
-  app.post('/api/moods', moodController.saveUserMood);
-  app.get('/api/moods', moodController.getAll);
+  //DATABASE ROUTES
+  //=================================
+  app.post('/api/moods/saved', moodController.saveUserMood);
+  app.get('/api/moods/saved', moodController.getAll);
 
-  app.post('/api/quotes', quoteController.saveUserQuote);
-  app.get('/api/quotes', quoteController.getAll);
+  app.post('/api/quotes/saved', quoteController.saveUserQuote);
+  app.get('/api/quotes/saved', quoteController.getAll);
 
   app.get('/login', (req, res) => {
     res.render('login', { message: req.flash('loginMessage') });
@@ -88,14 +90,5 @@ export default (app, express, passport) => {
   //=================================
     
   app.get('/wikiInfo', wiki.frontEndCall);
-
-
-  //DATABASE ROUTES
-  //=================================
   
-  // app.get('/api/moods/saved', databaseSaveTEMP);
-  // app.post('/api/quotes/saved', databaseSaveTEMP);
-
 };
-
-

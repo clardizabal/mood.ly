@@ -35,7 +35,7 @@ describe('Quote Controller', function() {
   it('should add users quote to the database', done => {
     let options = {
       method: 'POST',
-      uri: 'http://127.0.0.1:8080/api/quotes',
+      uri: 'http://127.0.0.1:8080/api/quotes/saved',
       json: {
         user: user,
         quote: quote1
@@ -46,7 +46,7 @@ describe('Quote Controller', function() {
       expect(res.statusCode).to.equal(201);
       let options = {
         method: 'GET',
-        uri: 'http://127.0.0.1:8080/api/quotes',
+        uri: 'http://127.0.0.1:8080/api/quotes/saved',
         json: {
           user: user
         }
@@ -62,7 +62,7 @@ describe('Quote Controller', function() {
   it('users should be able to have many quotes', done => {
     let options2 = {
       method: 'POST',
-      uri: 'http://127.0.0.1:8080/api/quotes',
+      uri: 'http://127.0.0.1:8080/api/quotes/saved',
       json: {
         user: user,
         quote: quote2
@@ -70,7 +70,7 @@ describe('Quote Controller', function() {
     }
     let options3 = {
       method: 'POST',
-      uri: 'http://127.0.0.1:8080/api/quotes',
+      uri: 'http://127.0.0.1:8080/api/quotes/saved',
       json: {
         user: user,
         quote: quote3
@@ -88,7 +88,7 @@ describe('Quote Controller', function() {
   it('should get all user quotes', done => {
     let options = {
       method: 'GET',
-      uri: 'http://127.0.0.1:8080/api/quotes',
+      uri: 'http://127.0.0.1:8080/api/quotes/saved',
       json: {
         user: user
       }
